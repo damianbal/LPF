@@ -1,0 +1,19 @@
+{
+    "name": "damianbal/lpf",
+    "description": "Little PHP framework",
+    "authors": [
+        {
+            "name": "DamianBal",
+            "email": "balandowski@icloud.com"
+        }
+    ],
+    "require": {
+        "twig/twig": "^2.0",
+        "symfony/routing": "^4.1"
+    },
+    "autoload": {
+        "psr-4": {
+            "LPF\\": "src/"
+        }
+    }
+}

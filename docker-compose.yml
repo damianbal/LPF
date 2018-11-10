@@ -1,0 +1,38 @@
+###############################################################################
+#                          Generated on phpdocker.io                          #
+###############################################################################
+version: "3.1"
+services:
+
+    mariadb:
+      image: mariadb:10.1
+      container_name: lpf-mariadb
+      working_dir: /application
+      volumes:
+        - .:/application
+      environment:
+        - MYSQL_ROOT_PASSWORD=lpf123
+        - MYSQL_DATABASE=lpf
+        - MYSQL_USER=lpf
+        - MYSQL_PASSWORD=lpf123
+      ports:
+        - "8184:3306"
+
+    webserver:
+      image: nginx:alpine
+      container_name: lpf-webserver
+      working_dir: /application
+      volumes:
+          - .:/application
+          - ./phpdocker/nginx/nginx.conf:/etc/nginx/conf.d/default.conf
+      ports:
+       - "8181:80"
+
+    php-fpm:
+      build: phpdocker/php-fpm
+      container_name: lpf-php-fpm
+      working_dir: /application
+      volumes:
+        - .:/application
+        - ./phpdocker/php-fpm/php-ini-overrides.ini:/etc/php/7.2/fpm/conf.d/99-overrides.ini
+
