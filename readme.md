@@ -1,4 +1,4 @@
-# LittlePHPFramework
+# Little PHP Framework
 
 Small MVC framework for PHP
 
@@ -6,13 +6,18 @@ Small MVC framework for PHP
 * Template (Twig)
 * Basic Auth
 * Routing (Symfony Routing)
-* Database (MySQL/MariaDB)
-* Simple ORM
+* Database (+ Simple ORM, + Tiny QueryBuilder, + Pagination generator)
 * Request / Response 
-* File uploading
-* Storage
+* Storage (+ File Uploading Utility)
 
 ## Installation
+
+Run those commands first
+
+```sh
+composer install
+composer dump-autoload
+```
 
 ### Database
 Set database connection details in src/App/config.php (skip that if using docker)
@@ -36,15 +41,6 @@ git push heroku master
 # To serve using Docker
 ```sh
 docker-compose up -d # within root directory
-```
-
-### Composer
-
-If some errors occur about missing classes run those commands
-
-```sh
-composer install
-composer dump-autoload
 ```
 
 ## Libraries used
